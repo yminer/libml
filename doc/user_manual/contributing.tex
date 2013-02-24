@@ -1,0 +1,44 @@
+\part{Contributing}
+\chapter{Code contributions}
+\section{General remarks}
+\subsection{Getting the source code}
+Go on our Savannah project page, and do a CVS checkout of the
+current sources\\
+\url{http://emptyurl.org} \cite{libml:savannah}
+
+\subsection{Coding style}
+80 col
+\subsection{Code documentation}
+Our API documentation is generated using \textit{ocamldoc}. You need to document your code using the standard \textit{ocamldoc} tags if you want your comments to be available in the code documentation.\\
+Please take a look at \textit{ocamldoc}'s documentation for more information.
+
+\subsection{Contributing to the user manual}
+New features have to be documented in this book, which is made thanks to \LaTeX{}. The \textit{.tex} files are available on our CVS \cite{libml:savannah} so you get its sources when you do a checkout of our CVS. 
+
+\section{Adding an algorithm to an already existing kind of learning object}
+If you want to add an algorithm to an already existing kind of learning
+object, then all you have to do is:
+\begin{itemize}
+\item{understand the API of the involved learning object}
+\item{write a new visitor which runs your algorithm, and which will be accepted by an instance of the involved family of learning objects}
+\end{itemize}
+
+\section{Adding new learning object or family of learning objects to LibML}
+
+
+\chapter{Other contributions}
+\section{user manual}
+This book is open to contribution. The \LaTeX{} sources are on our CVS. Feel free to send patches.
+
+\section{Code documentation}
+
+\chapter{Ideas which need to / could be implemented}
+\begin{itemize}
+\item Use the \textit{Format} module for verbosity
+\item \textit{C} API
+\item SWIG interfaces
+\item Packages for various distributions of \gloss{GNULINUX}
+\item Generate images during learnings (ex: to show an error converging to 0) or export to gnuplot or whatever
+\item Lots of new learning objects!
+\item Any suggestion? :-)
+\end{itemize}

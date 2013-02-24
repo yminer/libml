@@ -1,0 +1,133 @@
+\part{Implemented algorithms}
+\label{algorithms:part}
+%TODO fill this doc!!!
+\chapter{Optimization learning}
+\section{Neural networks (also called connectivist networks)}
+\label{algorithms:nn}
+
+\subsection{What can be done with neural networks?}
+\subsubsection{General remarks about neural networks}
+The artificial neural networks are based on the information propagation
+between elementary units. A single neuron is useless, but the cooperation
+of some of them can perform complex approximations or classifications.\\
+This model is take from the humain brain model.\\
+%The goal is here to use a model of the way brains work. Neural networks can
+%be used for automatic classification rules learning.\\
+Brain is an organ caracterized by the interconnection of a high number of
+simple units, the neural cells or neurones. This network's behavior is
+determined by its architecture, which means how many cells there are and
+the way they are connected, and also the weight associated to each 
+connection.The learning capacity of such structures relies on the process of
+adding newknowledge in memory by modifying the weights of the connections 
+according to examples.
+
+\subsection{Abstract learningObject: the \gloss{NN} class}
+
+Instances of the \gloss{LEARNINGOBJECT} class to use in order to work with 
+LibML's neural network implementation inherit from nn. Here are the currently 
+available concrete classes which inherit from nn.
+
+\subsection{Multi-Layer Perceptrons (MLP)}
+
+\subsubsection{The formal neuron}
+
+It's the elementary processing unit in a neural network. It is characterised by a 
+transfert function $f$ which compute for each neuron $i$, with in entry a signal $x_i$,
+an output value $y_{i}$ : $f(x_{i})=y_{i}$.\\
+This transfert functions are generaly sigmoid functions\footnote{Functions which have the
+shape of the letter S}, as an example :
+
+\begin{center}
+ $y_{i}=f(x_{i})=\frac{1}{1+e^{-\lambda x_{i}}}$
+\end{center}
+
+or even
+
+\begin{center}
+ $y_{i}=f(x_{i})=\tanh (x_{i})$
+\end{center}
+
+\subsubsection{Structure}
+
+A multi-layer perceptron is network can be described by a layer succession (i.e. 
+neurons group) with a particular connectivity, each layer is connected to the
+next and between two layers we have a total connectivity.\\
+The most part of applications dealing with neural networks have a three layers 
+structure. The first layer is called \emph{input layer}, the second \emph{hidden layer} and
+the last \emph{output layer}.\\
+To each 'link' between two neurons is associated a 'weight' which ponders the signal 
+circuling between the two neurons. As an example, for a network with one hidden layer we have :
+
+\begin{center}
+ $o=W_{3}.S(W_{2}.S(W_{1}.e))$
+\end{center}
+
+with $o$ the output vector, $e$ the input vector, $S$ the transfert function and $W_i$ the
+weight matrix linking the layer $i$ to layer $i+1$.
+
+\subsubsection{Learning}
+
+The learning in a neural network can be \emph{supervised} or \emph{unsupervised}. Actually, all the
+models developped in the LibML are \emph{supervised}, the learning is processed by successive error 
+corrections.
+
+\subsubsection{Batch Learning}
+
+\subsubsection{Stochastic Learning}
+
+\subsubsection{Weight Decay}
+
+\subsubsection{Enhanced Backpropagation}
+\label{nn:enhancedbackprop}
+
+\paragraph{Principle}
+An enhanced backpropagation learning is almost like a stochastic learning.
+The only difference is that during an enhanced backpropagation, the visitor
+saves the weight modifications it does. A weight correction is now also
+dependent on the previous correction.\\
+
+The advantage of such a method is that it enables the network to get out of a
+local minimum. It also prevents the network from oscillating.
+
+%TODO check this link when online
+\paragraph{Links}
+\begin{itemize}
+\item \url{http://www-ra.informatik.uni-tuebingen.de/SNNS/UserManual/node146.html}
+\end{itemize}
+
+\paragraph{Code example}
+\begin{verbatim}
+  TODO
+\end{verbatim}
+
+\subsection{Time Delay Neural Networks (TDNN)}
+
+%TODO Document the genetic programming stuff...
+\chapter{Genetic programing}
+\label{algorithms:gp}
+
+\section{PLI}
+
+\subsection{What can be done with genetic programming algorithms?}
+
+
+\subsubsection{General remarks about genetic programming algorithms}
+Explain what thiy do and what they are generaly used for
+
+\subsubsection{Concrete examples}
+give a few examples
+
+\subsection{Abstract learning object: ??}
+
+
+
+\chapter{Approximation and interpolation learning}
+\section{K-mean classifier}
+
+
+\chapter{Expert systems}
+\section{RETE maching algorithm}
+
+\subsection{Implementation}
+%TODO: link to the PhD
+

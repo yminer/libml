@@ -1,0 +1,73 @@
+\part{Installing}
+\label{installing:part}
+
+\chapter{Requirements}
+\section{Software dependencies}
+\label{installing:deps}
+The following softwares have to be installed on your system if you want to
+build, install, or use LibML:
+\begin{itemize}
+\item{\textbf{The OCaml distribution} (`apt-get install ocaml'). Sources available
+here: http://caml.inria.fr/ocaml/distrib.html}
+\item{\textbf{The `findlib' library} (`apt-get install ocaml-findlib'). Sources
+available here: http://ocaml-programming.de/programming/findlib.html}
+\item{\textbf{gcc} (`apt-get install gcc'). Used to build the mld daemon.}
+\end{itemize}
+
+%TODO url mailing list
+\section{Supported architectures/operating systems}
+LibML is usually developped on \gloss{GNULINUX} systems. Please report any compilation problem on our development mailing list (\url{http://??}\cite{libml:mailinglist}).
+
+
+\chapter{Installing LibML}
+\label{installing:packaging}
+\section{Getting the source code}
+LibML's source code is available on \url{http://libml.org}\cite{libml:web}.
+It is distributed as tarballs compressed using bzip2, named libml-x.x.tar.bz2.
+\section{Decompressing the tarball}
+The following command will decompress the tarball and dump its content in a
+new subdirectory named libml-x.x:
+\begin{verbatim}
+olivier@freedom ~ > bzip2 -dc libml-x.x.tar.bz2 | tar xv
+\end{verbatim}
+Here is what one can find in the tarball:
+\begin{itemize}
+\item LibML's sources, of course
+\item a set of documentations. See \vref{installing:documentation}.
+\end{itemize}
+
+\section{Compiling the library}
+\label{installing:compilation}
+The following command will compile LibML\footnote{You need
+\textit{GNU make}.}:
+\begin{verbatim}
+olivier@freedom libml-x.x > make
+\end{verbatim}
+\subsection*{Compilation problems}
+If you have any problem compiling, please check these
+\begin{enumerate}
+\item If compilation failed to begin because of an error while the
+\textit{src/configure} script was being run, check the output. Problem
+at this step are probably due to a problem with the dependencies (see \vref{installing:deps}).
+\item Check that you are using \textit{GNU make}.
+\end{enumerate}
+Please report compilation problems on our mailing list \cite{libml:mailinglist}.
+
+\section{Installing LibML}
+The following command will install the library you've just compiled and
+the documentation on your system:
+\begin{verbatim}
+olivier@freedom libml-x.x > make install
+\end{verbatim}
+
+\section{Documentation}
+\label{installing:documentation}
+%TODO find a way to get a real link here
+The \textit{doc/index.html} file enables you to access all the documentation
+located in \textit{doc/} using your favorite web browser.
+\section{Uninstalling LibML}
+The following command will uninstall LibML and its documentation from
+your system:
+\begin{verbatim}
+olivier@freedom libml-x.x > make uninstall
+\end{verbatim}

@@ -1,0 +1,136 @@
+\part{Getting into the API}
+
+\chapter{Overview of the architecture}
+
+\section{Writting a program which uses LibML}
+\subsection{Concretely, what do a program using LibML looks like?}
+
+In order to use LibML, here is what a program has to do:
+\begin{itemize}
+\item start the \textit{mld} daemon thanks to an \textit{exec}-like instruction. When started, the daemon listens on a port for SOAP requests which command its actions.
+\item send SOAP requests to the daemon so that it performs the kind of machine learning you need and get the result.
+\end{itemize}
+
+\textit{That's all...}
+
+\bigskip
+
+\subsection{Which languages?}
+
+Because of the fact that the \textit{mld} daemon uses SOAP (which is a reliable standard), LibML is usable from almost any language. We can list the following well known languages:
+\begin{itemize}
+\item C/C++
+\item Perl
+\item Java
+\item Python
+\item C\#
+\end{itemize}
+Many other languages are possible (somewhere it's said that there is a SOAP
+implementation for over 60 languages...). All you need to make sure is that
+you can create a SOAP server out of a \textit{.wsdl} file. The \textit{.wsdl}
+file contains a description of what a given SOAP server does (\textit{mld} is
+a SOAP server) and how to communicate with it. Almost all languages have
+facilities for easily generating an API using the \textit{.wsdl} file.
+
+\bigskip
+
+The way such a thing should be implemented in the main languages is documented
+in \vref{mld}.
+
+\subsection{Basic algorithm for a developer willing to use LibML}
+\begin{verbatim}
+1. Find a good idea.
+2. Pick a language you like to use.
+3. if (This manual explains how to use LibML from this language)
+   then
+     Go to 4.
+   else
+     if (You like your language enough to handle the SOAP part,
+         which is not that complicated)
+     then
+       Write the SOAP part for your language, and let us know.
+     else
+       Pick a different language and go to 3.
+4. Manage to make a program which starts mld.
+5. Manage the program to send a dummy SOAP instruction to the daemon.
+   At this point, you have a program which can send learning tasks to
+   mld, but does nothing.
+6. Look at the pages of this manual which are relevant for the kind
+   of implemented learning algorithm you plan to call from your
+   program, and convert the given pseudo-code to the language
+   you use. It's all about sending simple messages to the daemon.
+7. Debug ;)
+\end{verbatim}
+
+
+\section{The \textit{\gloss{LEARNING}} class: where everything begins}
+
+The learning class represents a learning session. The session is alive as
+long as your instance of the \textit{\gloss{LEARNING}} class is alive. Here
+are the main datas which are stored into an instance of this class.
+\subsection{Code example}
+The following OCaml code enables you to instanciate a \textit{learning}.
+\begin{verbatim}
+(* TODO: this code needs to be converted to pseudo-code *)
+open Learning
+
+let _ =
+  (* This line creates an empty instance of the learning class *)
+  let
+    learning = new learning
+  in
+    exit 0
+\end{verbatim}
+
+For now, this new \textit{learning} value is filled with an unusable
+learning object. You'll have to fill it with an object
+who's class inherit from the \textit{\gloss{LEARNINGOBJECT}} class thanks
+to its \textit{setLearningObject} method. See \vref{algorithms:part} for
+more information about the available learning objects. 
+
+\subsection{Data stored into an instance of the \textit{\gloss{LEARNING}} class}
+\paragraph{An instance of the \textit{\gloss{ENV}} class}
+An instance of the \textit{\gloss{ENV}} class contains the datas and
+the methods used to provide some interaction (mainly to handle
+verbosity).
+
+\paragraph{An instance of a class which inherit from
+the \textit{\gloss{LEARNINGOBJECT}} class}
+A learning object is an abstract learning object which contains datas structures and/or methods  which enable one to perform a learning. See \vref{algorithms:part} to learn more about the available concrete learning objects.
+
+\subsection{Useful methods of the \textit{\gloss{LEARNING}} class}
+\paragraph{\textit{setLearningObject}}
+In the following code, an instance of learning is filled with a usable
+learning object thanks to the \textit{setLearningObject} method:
+\begin{verbatim}
+open Learning
+
+let _ =
+  let learning = new learning
+    and learningObject = new mlpNN
+  in
+    learning#setLearningObject learningObject;
+    exit 0
+\end{verbatim}
+
+\paragraph{\textit{getlearningObject}}
+This method provides you the current instance of learningObject. The
+following OCaml code provides you a function which gives you the current
+learningObject. This \textit{getLearningObject} function takes one parameter:
+the learning on which it is supposed to work on.
+%TODO example of call to the new getLearningObject function
+\begin{verbatim}
+let _ =
+  let getLearningObject (mylearning: learning)= (mylearning#getLearningObject)
+in
+  (* Then, you can use the getLearningObject function as you wish, or exit 0... *)
+  exit 0
+\end{verbatim} 
+
+\section{Using visitors to perform actions}
+The \textit{\gloss{DEFAULTVISITOR}} class is intensively used to perform
+actions on instances of classes which inherit from the
+\textit{\gloss{LEARNINGOBJECT}} class. See \vref{api:xmlimportvisitor}
+for a code example about how to use a visitor to perform an action on an
+object.
+

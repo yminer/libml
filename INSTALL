@@ -1,0 +1,85 @@
+(******************************************************************
+  [LibML - Machine Learning Library]
+  http://libml.org
+  Copyright (C) 2002 - 2003  LAGACHERIE Matthieu RICORDEAU Olivier
+  
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License
+  as published by the Free Software Foundation; either version 2
+  of the License, or (at your option) any later version. This
+  program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details. You should have
+  received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307,
+  USA.
+  
+  SPECIAL NOTE (the beerware clause):
+  This software is free software. However, it also falls under the beerware
+  special category. That is, if you find this software useful, or use it
+  every day, or want to grant us for our modest contribution to the
+  free software community, feel free to send us a beer from one of
+  your local brewery. Our preference goes to Belgium abbey beers and
+  irish stout (Guiness for strength!), but we like to try new stuffs.
+
+  Authors:
+  Matthieu LAGACHERIE
+  E-mail : matthieu@libml.org
+  
+  Olivier RICORDEAU
+  E-mail : olivier@libml.org
+
+ ****************************************************************)
+
+
+
+(*****************************************
+ Installing LibML on your operating system
+ *****************************************)
+
+
+(* LIBRARY COMPILATION *)
+
+-> REQUIRES:
+	* the OCaml distribution (`apt-get install ocaml'). Sources available
+	  here: http://caml.inria.fr/ocaml/distrib.html
+	* the `findlib' library (`apt-get install ocaml-findlib'). Sources
+	  available here: http://ocaml-programming.de/programming/findlib.html
+	* gcc (`apt-get install gcc'). Used to build the mld daemon.
+
+Then, if you want to compile the LibML library (optimized code and bytecode,
+depending on what can be done on your operating system):
+olivier@freedom libml > make
+olivier@freedom libml > ls -l libml.*
+
+
+(* WHAT CAN BE MADE WITH THESE SOURCES ? *)
+
+You can get a list of the available make targets by doing the following:
+olivier@freedom libml > make help
+
+
+(* DOCUMENTATION *)
+
+-> Viewing the source code documentation:
+You can try to view the different output formats (each command will succeed
+only if the corresponding output format was successfully generated during the
+previous step). Just use the provided html page: doc/index.html.
+
+
+(* SUPPORTED ARCHITECTURES / OPERATING SYSTEMS *)
+
+We plan to make our sources compilable on as much architectures as possible. If
+you need an architecture to be supported, just send an email to the authors
+(see this file's header). An ssh access to a machine running the architecture
+you need to be supported would be really helpful.
+
+LibML is mainly developed on Debian GNU/Linux.
+
+
+We hope you enjoy LibML!
+Cheers,
+
+-= The LibML development team =-

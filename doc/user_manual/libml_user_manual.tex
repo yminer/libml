@@ -1,0 +1,68 @@
+\documentclass[11pt, a4paper, titlepage, openright, oneside]{book}
+
+\usepackage{t1enc}
+\usepackage[american]{babel}
+\usepackage{changebar}
+\usepackage{amsfonts}
+\usepackage[dvips]{graphicx}
+\usepackage{portland}
+\usepackage{vmargin}
+\usepackage{rotating}
+\usepackage{shapepar}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{bar}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{latexsym}
+\usepackage{palatino}
+%\usepackage{draftcopy}
+\usepackage[refpages]{gloss}
+\usepackage{makeidx}
+\usepackage[american]{varioref}
+
+\makeindex
+\makegloss
+
+\normalsize
+\setmarginsrb{3cm}{3cm}{3cm}{2cm}{12pt}{10mm}{6pt}{2mm}
+\title{\Huge{\textsc{LibML user manual}}\\
+\begin{huge}
+version 0.1-alpha
+\end{huge}
+}
+\author{\textsc{Olivier Ricordeau}\\
+\textsc{Matthieu Lagacherie}}
+\date{\today{}}
+\pagestyle{headings}
+\begin{document}
+\begin{center}
+\newlength{\cadredim}
+\setlength{\cadredim}{12cm}
+
+\newcommand{\dblcadre}[1]{
+{\setlength{\fboxrule}{3pt} \setlength{\fboxsep}{10pt}
+\fbox{\setlength{\fboxrule}{1pt} \setlength{\fboxsep}{1pt}
+\fbox{\parbox{\cadredim}{#1}}}}} \dblcadre{ \maketitle }
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+\input{introduction}
+\input{installing}
+\input{api}
+\input{mld}
+\input{algorithms}
+\input{examples}
+\input{contributing}
+\bibliographystyle{plain}
+\bibliography{biblio}\addcontentsline{toc}{chapter}{Bibliographie}
+\listoffigures\addcontentsline{toc}{chapter}{List of figures}
+\listoftables\addcontentsline{toc}{chapter}{List of tables}
+\addcontentsline{toc}{chapter}{Index}\printindex
+\printgloss{glsbase,glossary}
+\input{appendix}
+
+\end{document}

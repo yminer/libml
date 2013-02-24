@@ -1,0 +1,112 @@
+################################################################
+# [LibML - Machine Learning Library]
+# http://libml.org
+# Copyright (C) 2002 - 2003  LAGACHERIE Matthieu RICORDEAU Olivier
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version. This
+# program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details. You should have
+# received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307,
+# USA.
+
+# SPECIAL NOTE (the beerware clause):
+# This software is free software. However, it also falls under the beerware
+# special category. That is, if you find this software useful, or use it
+# every day, or want to grant us for our modest contribution to the
+# free software community, feel free to send us a beer from one of
+# your local brewery. Our preference goes to Belgium abbey beers and
+# irish stout (Guiness for strength!), but we like to try new stuffs.
+
+# Authors:
+# Matthieu LAGACHERIE
+# E-mail : matthieu@libml.org
+
+# Olivier RICORDEAU
+# E-mail : olivier@libml.org
+
+################################################################
+
+#
+# (* variables.Makefile.in *)
+#
+
+#
+# This file is the center of LibML's compilation system. It contains all
+# the sources paths, and is include in each Makefile of the project. It
+# enables to recursively perform `make' operations in the LibbNN sources
+# set, such as `make all', `make clean', `make doc', etc.
+#
+# NB: This file is highly inspired from
+# the "sample Makefile for Objective Caml" file
+# by Jean-Christophe FILLIATRE
+# http://www.lri.fr/~filliatr/ftp/ocaml/misc/Makefile.in
+#
+
+NAME = libml
+
+# (* /Sources *)
+
+
+# where to install the binaries
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+BINDIR=@bindir@
+
+# where to install the man page
+MANDIR=@mandir@
+
+# other variables set by ./configure
+OCAMLC   = @OCAMLC@
+OCAMLOPT = @OCAMLOPT@
+OCAMLMKLIB = @OCAMLMKLIB@
+OCAMLDEP = @OCAMLDEP@
+OCAMLFIND = @OCAMLFIND@
+OCAMLFINDPATH = @OCAMLFINDPATH@
+OCAMLLEX = @OCAMLLEX@
+OCAMLYACC= @OCAMLYACC@
+OCAMLLIB = @OCAMLLIB@
+OCAMLVERSION = @OCAMLVERSION@
+OCAMLWEB = @OCAMLWEB@
+OCAMLWIN32 = @OCAMLWIN32@
+CC = @CC@
+EXE = @EXE@
+BYTE = @BYTE@
+OPT = @OPT@
+
+OCAMLDOC = ocamldoc -sort
+DVIPS = dvips
+DVIPDF = dvipdf
+LATEX2HTML = latex2html
+LATEX = latex
+BIBTEX = bibtex
+MAKEINDEX = makeindex
+MAKE = make -s
+
+# General compilation flags.
+############################
+
+# bytecode
+BFLAGS = -g -w A
+# native code
+OFLAGS = -w A -compact
+
+# Flags for linking.
+####################
+
+# bytecode
+BLFLAGS = -a -w A
+# native code
+OLFLAGS = -w A
+
+RM = rm -f
+TMP = /tmp/$(NAME)-build
+LN = ln -fs
+
+DOC_INSTALL_PATH = /usr/share/doc/$(NAME)

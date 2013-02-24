@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	title="mlrc"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	style="overflow: scroll">
+  
+  <description>
+    <html:h1>MLRC (Machine Learning Remote Controler)</html:h1>
+  </description>
+
+  <box>
+    <vbox>
+
+  <groupbox>
+    <caption label="Remote controler information" />
+    <description>
+      <html:ul>
+	<html:li>mlrc running on host freedom (127.0.0.1), port 4321</html:li>
+	<html:li>3 daemons connected on 2 hosts</html:li>
+	<html:li>1 computing daemon(s)</html:li>
+	<html:li>2 idle daemon(s)</html:li>
+      </html:ul>
+    </description>
+  </groupbox>
+
+
+      
+      <hbox>
+	<box height="200">
+	  <groupbox>
+	    <caption label="Known clients running mld" />
+
+	    <tree flex="1" id="tree1">
+	      <treecols>
+		<treecol width="220" id="sex1" label="Host" primary="true"/>
+		<treecol width="200" id="attr1" label="Status" />
+		<treecol width="70" id="color1" label="Port" />
+	      </treecols>
+	      <treechildren>
+		<treeitem  container="true" open="true">
+		  <treerow>
+		    <treecell label="freedom (127.0.0.1)" />
+		  </treerow>
+		  <treechildren>
+		    
+		    <treeitem>
+		      <treerow>
+			<treecell label="mld daemon #1" />
+			<treecell label="computing" />
+			<treecell label="4242" />
+		      </treerow>
+		    </treeitem>
+		    <treeitem>
+		      <treerow>
+			<treecell label="mld daemon #2" />
+			<treecell label="idle" />
+			<treecell label="6666" />
+		      </treerow>
+		    </treeitem>
+		  </treechildren>
+		</treeitem>
+		
+		<treeitem  container="true" open="true">
+		  <treerow>
+		    <treecell label="utopia (10.0.0.11)" />
+		  </treerow>
+		  <treechildren>
+		    <treeitem>
+		      <treerow>
+			<treecell label="mld daemon #1" />
+			<treecell label="idle" />
+			<treecell label="4242" />
+		      </treerow>
+		    </treeitem>
+		  </treechildren>
+		</treeitem>
+		
+	      </treechildren>
+	    </tree>
+	  </groupbox>
+	</box>
+	
+	<vbox>
+	  
+	  <box>
+	    <groupbox>
+	      <caption label="Add a daemon" />
+	      
+	      <hbox>
+		<description>
+		  host:
+		</description>
+		<textbox id="host"  size="17"
+			 oninput="" />
+	      </hbox>
+	      <description>
+		<html:small><html:i>ex:</html:i> "localhost", "192.168.1.1"</html:small>
+	      </description>
+	      
+	      <hbox>
+		<description>
+		  port:
+		</description>
+		<textbox id="port" size="5"
+			 oninput="" />
+	      </hbox>
+	      <description>
+		<html:small><html:i>ex:</html:i> "1234"</html:small>
+	      </description>
+	      
+	      <box>
+		<button label="Add daemon" />
+	      </box>
+	    </groupbox>
+	  </box>
+	  
+	  <box>
+	    <groupbox>
+	      <caption label="Actions" />
+	      <button label="Remove selected daemon" />
+	      <button label="View logs of selected daemon" />
+	    </groupbox>
+	  </box>
+	  
+	</vbox>
+
+      </hbox>
+
+      <groupbox style="max-height:20em">
+	<caption label="Logs for mld daemon #1 on freedom (127.0.0.1), port 4242" />
+	<vbox flex="1" style="overflow: scroll">
+
+	  <description>
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	    [LibML] hello world!<html:br />
+	  </description>
+
+	</vbox>
+      </groupbox>
+
+
+    </vbox>
+  </box>
+  
+</window>

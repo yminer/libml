@@ -1,0 +1,134 @@
+body {
+		font-size:11px;
+	font-family:verdana, arial, helvetica, sans-serif;
+	color:#333;
+	background-color:white;
+	margin:0;
+	padding:0;
+	}
+p {margin:0 0 1em;}#Content p {}#Content blockquote p {line-height:1.5;}
+/* Browsers that understand the CSS child selector get the good typography. */
+#Content p+p {margin-top:-1em;}a {
+	color:#09c;
+	text-decoration:none;
+	font-weight:600;
+	}a:link {color:#09c;}a:visited {color:#07a;}a:hover {background-color:#eee;}hr {size	color: #EEEEEE;
+	height: 2px;}h1 {
+	color:#333333;
+	font-size:12px;
+ /* Not a relative value, since this is the site logotype */
+	line-height:12px;
+ /* Ditto */
+	font-weight:800;
+	font-family:verdana, arial, helvetica, sans-serif;
+ /* Again, it's the logotype, so we want this control. */
+	margin:0;
+	padding:0;
+	}h2 {
+	color:#ccc;
+	font-size:2.18em;
+ /* ~24px */
+	font-weight:800;
+	margin:0 0 .83em;
+ /* margin-bottom: ~20px */
+	}h3 {	color:#333;
+	font-size:1em;
+	font-weight:700;
+	margin:1.63em 0 .27em;
+ /* ~18px 0 ~3px */
+	}h4 {
+	color:#999;
+	font-size:1.27em;
+ /* ~14px */	font-weight:800;
+	margin:.43em 0 .214em;
+ /* ~6px 0 ~3px */
+	}h5 {
+	color:#999;
+	font-size:1em;
+	font-style:italic;
+	font-weight:800;
+	margin:1.8em 0 .27em;
+ /* ~20px 0 ~3px */
+	}blockquote {
+	margin:1em 2.7em 1.36em;
+ /* 11px ~30px ~15px */
+	color:#666;
+	line-height:1.5;
+	}
+	img {border-width:0;}img.thumb {margin:10px 1px;}#Menu {	float:left;
+	width:150px;
+	margin-top:38px;
+	padding:0 10px 40px;
+	background-image:url(../images/dotted_vertical.gif);
+	background-repeat:repeat-y;
+	height: auto;
+	}#Menu h2 {
+	color:#ccc;
+	font-size:1.27em;
+ /* ~14px */
+	font-weight:800;
+	margin:.86em 0 .214em;
+ /* ~12px 0 ~3px */
+	}#Menu p {	font-size:.9em;
+	line-height:1.5;
+	margin:0 0 2em;
+	}#Menu ul {margin:0 0 0 1em;
+ padding:0;}#Menu li {list-style-type:none; margin:0; padding:0; text-indent:-1em;}	#Main {	clear:left;
+	float:left;
+	width:70%;
+	}#Content {
+	padding:38px 15px 0px 114px;
+	background-image:url(../images/bg_leaf.gif);
+	background-repeat:no-repeat;
+	background-position:top right;
+	}#Header {
+	width:100%;
+	margin-top:100px;
+	height:32px;
+	border-color:black;
+	border-style:solid;
+	border-width:1px 0;
+	background-image:url(../images/header_right.gif);
+	background-repeat:no-repeat;
+	background-position:center right;
+	voice-family: "\"}\"";
+  	voice-family:inherit;
+		height:30px;
+	}body>#Header {height:30px;}#headerLogo {
+	float:left;
+	height:13px;
+	background-image:url(../images/header_left.gif);
+	background-position:top left;
+	background-repeat:no-repeat;
+	padding:17px 0 0 114px;
+	font-weight: bold;
+	color: #666666;
+	}#headerLogo a {
+	font-weight: bold;
+	color: #666666;
+	text-decoration: none;
+	}
+	#headerLogo a:hover {
+	font-weight: bold;
+	color: #333333;
+	text-decoration: none;
+	}
+		#headerOverlap {
+	position:absolute;
+	top:78px;
+	left:69%;
+	width:93px;
+	height:76px;
+	background-image:url(../images/header_leaf.gif);
+	background-position:center left;
+	background-repeat:no-repeat;
+	}#Copyright {
+	clear:both;
+	padding:50px 0px 100px 0px;
+	text-align:center;
+	font-weight:800;
+	color:#999;
+	}#copyrightText {
+	position:relative;
+	left:-1.5em;
+	}#logNav {margin:3em 0 4em; text-align:center;}

@@ -1,0 +1,193 @@
+\part{The \textit{mld} daemon}
+\label{mld}
+
+\section{The Machine Learning Daemon}
+
+\subsection{Introduction}
+
+The Machine Learning Library can be used in two manners :
+\begin{itemize}
+\item As a classic library linked with the main program.
+\item As a daemon.
+\end{itemize}
+
+Why a daemon? The aim is the interoperability and the quick development 
+of software in many languages. The interoperability is ensured by SOAP bindings, 
+a little introduction to SOAP will be made in \vref{mld:soap}.\\
+
+\subsection{\emph{mld} and SOAP}
+\label{mld:soap}
+
+SOAP stands for \textbf{Simple Object Access Protocol}. It is a simple XML 
+based protocol to let applications easily exchange information 
+over HTTP.\\
+Quickly, the strenghts of the SOAP protocol :
+\begin{enumerate}
+\item platform independant
+\item language independant (more than 60 languages offers SOAP support)
+\item based on XML
+\item developed as W3C standard
+\end{enumerate}
+
+Why SOAP? One of the greatest problem in library design is the choice of the languages that
+will be handled. The most part of today's libraries are developped for one language (the language
+in which they are implemented).\\
+In the Machine Learning Library developpment, SOAP give us an abstract API, which can be used in
+all languages with a SOAP support.\\
+
+Finaly, SOAP provides an efficient way to communicate between applications running on different operating
+systems, with different technologies and programming languages.
+
+\subsubsection{The way of grid computing}
+
+SOAP let us consider grid computing architectures design. Indeed the facilities provided by 
+SOAP can be used in order to implement distributed machine learning stuffs.
+
+\subsection{Using \emph{mld}}
+
+LibML's compilation system uses the gSOAP project to generate
+a \textit{libml.wsdl} which contains the definitions of the functions provided by \emph{mld}.\\
+
+\noindent Using \emph{mld} is quite easy :
+\begin{itemize}
+\item launch \emph{mld} with this command :\\
+\begin{verbatim}
+matthieu@gally > mld <host-name> <port>
+\end{verbatim}
+\item compile your program using the soap library generated from the file
+\emph{libml.wsdl}.
+\item launch it!
+\end{itemize}
+
+Not all languages provides a SOAP handling with an automatic creation of the SOAP bindings 
+from the wsdl file. If it is your case you can write your own bindings (its requiring more work), 
+read the documentation of the SOAP library for this language.
+
+
+\newpage
+\section{Using \textit{mld} in C/C++}
+
+\subsection{Generating client library with gSOAP from wsdl}
+
+\noindent The gSOAP project provides two applications :
+\begin{description}
+\item [soapcpp2 :] This program take the libml.h and generate the server source code. This program
+is used to generate \emph{mld}.
+\item [wsdl2h :] This program takes the libml.wsdl and generate the client source code.\\
+\end{description}
+
+\noindent In order to generate C bindings for \emph{mld} :
+\begin{verbatim}
+matthieu@gally > wsdl2h -c libml.wsdl
+\end{verbatim}
+
+\noindent This command generate the files \textbf{soapC.c} and \textbf{soapClient.c} and the headers.\\
+
+\noindent There is two manners to compile your application with this files.
+
+\subsubsection{1 - You have installed the package gSOAP and its libraries}
+
+\noindent So the compilation command is :
+\begin{verbatim}
+matthieu@gally > gcc -o my-soft soapC.c soapClient.c my-soft.c -lgsoap
+\end{verbatim}
+
+\subsubsection{1 - You have not installed the package gSOAP and its libraries}
+
+\noindent You don't have to install this package to compile your application. You just have
+to take the files \textbf{stdsoap2.c} and \textbf{stdsoap2.h} and copy it in your working directory.
+\begin{verbatim}
+matthieu@gally > gcc -o my-soft soapC.c soapClient.c stdsoap2.c my-soft.c
+\end{verbatim}
+
+The generation of C++ bindings uses the same rules, you just have to use this command :
+\begin{verbatim}
+matthieu@gally > wsdl2h libml.wsdl
+\end{verbatim}
+This command imply the generation of C++ files instead of C files.\\
+
+That's all!
+
+\subsection{Code example}
+A code example can be found in the distribution tarball. look at
+\textit{doc/examples/c}.
+
+\newpage
+\section{Using \textit{mld} in Perl}
+
+\newpage
+\section{Using \textit{mld} in Java}
+
+The following resources are available for developers willing to make a Java
+program which uses LibML:
+\begin{itemize}
+\item A \textit{libml-java-api-x.x.jar} file located in \textit{stubs/java} which contains all
+the needed classes to connect to mld and make a learning.
+\item The \textit{LibML Java API documentation}, a javadoc-like documentation
+located in the jar file, and in the main documentation page of the
+distribution tarball (see \textit{doc/index.html}).
+\item An example of the way the \textit{jar} file should be used, located in
+\textit{doc/examples/java}.
+\end{itemize}
+
+\subsection{Requirements}
+
+\begin{itemize}
+\item A compiled \textit{mld} binary.
+\item The \textit{libml-java-api-x.x.jar} file provided in the distribution
+tarball.
+\item The \textit{jar} files of the \emph{Apache Axis}\footnote{Apache Axis:
+an open source implementation of the SOAP ("Simple Object Access Protocol",
+\url{http://ws.apache.org/axis/}) submission to W3C.} library.
+\item A java compiler. The example uses \emph{gcj}\footnote{gcj: the GNU
+compiler for Java, \url{http://gcc.gnu.org/java/}}.
+\item A Java virtual machine. The example uses \emph{kaffe}\footnote{kaffe: a
+GPL Java virtual machine, \url{http://www.kaffe.org/}} but the jar file
+should be usable with other VM's, and obviously Sun's one.
+\end{itemize}
+
+\subsection{Using the provided \textit{jar} file}
+Basically, you need to create a class which inherits from the
+\textit{org.libml.driver.LibmlDriver} virtual class. This way, you get an
+object which is able to connect to a running instance of \textit{mld} thanks
+to the inherited \textit{connect} method, and you just have to implement the
+\textit{run} method which actually sends the instructions which make the
+learning you need.
+
+\subsection{Code example}
+Take a look at the example's sources and the
+\textit{LibML Java API documentation} to understand what's going on. Reading
+the Makefile should help understanding how the code is built and run.
+
+\subsubsection{Requirements}
+\begin{itemize}
+\item In order to build the example, you need gcj
+\item In order to run them, you need kaffe.
+\end{itemize}
+Note: you can use another compiler/VM with a little hack in the Makefile.
+
+\subsubsection{Building the example}
+\begin{verbatim}
+olivier@freedom libml-x.x > cd doc/examples/java
+olivier@freedom java > make
+\end{verbatim}
+
+\subsubsection{Running the example}
+First, you need to run mld in another terminal so that it listens on the
+port 4242 of 127.0.0.1 (localhost):
+\begin{verbatim}
+olivier@freedom libml-x.x > cd src/server
+olivier@freedom server > ./mld ``127.0.0.1'' 4242
+\end{verbatim}
+Then, run the example in the first terminal:
+\begin{verbatim}
+olivier@freedom java > make run
+\end{verbatim}
+The executed Java code is supposed to connect to \textit{mld} and send dummy
+instructions to it.
+
+\newpage
+\section{Using \textit{mld} in Python}
+
+\newpage
+\section{Using \textit{mld} in C\#}

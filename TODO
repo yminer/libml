@@ -1,0 +1,8 @@
+* Dynamic neural networks implementation
+
+* Documentation with examples about how to use the lib.
+
+* make check must check the examples
+
+* include generated files for SOAP in the distribution tarball (at least for
+the most famous languages)

@@ -1,0 +1,11 @@
+/.cvsignore/1.1/Mon Nov 24 17:19:40 2003//
+/Makefile/1.4/Sun Mar 28 13:49:21 2004//
+/backpropCommonVisitor.ml/1.1/Mon Nov 24 17:19:40 2003//
+/backpropVisitor.ml/1.1/Mon Nov 24 17:19:40 2003//
+/check.ml/1.1/Mon Nov 24 17:19:40 2003//
+/propagateMlpnnOptimizedVisitor.ml/1.1/Sun Mar 28 13:49:21 2004//
+/propagateMlpnnStdVisitor.ml/1.1/Thu Mar 11 23:53:18 2004//
+/propagateMlpnnVisitor.ml/1.3/Sun Mar 28 13:49:21 2004//
+/propagateTdnnVisitor.ml/1.1/Mon Nov 24 17:19:40 2003//
+/propagateVisitor.ml/1.1/Mon Nov 24 17:19:40 2003//
+D
